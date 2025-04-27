@@ -1,6 +1,7 @@
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('admin/assets/css/bootstrap-5.3.min.css') }}" rel="stylesheet">
     <!-- Font Awesome for icons -->
+    {{-- <link rel="stylesheet" href="{{ asset('admin/assets/css/font-awesome-6.0.all.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     

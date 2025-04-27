@@ -1,7 +1,7 @@
     <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('admin/assets/js/bootstrap-5.3.min.js') }}"></script>
     <!-- Chart.js for dashboard charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('admin/assets/js/chart.js') }}"></script>
     <script>
         // Tab switching functionality
         document.querySelectorAll('.nav-link').forEach(link => {
