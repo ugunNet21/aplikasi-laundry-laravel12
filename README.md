@@ -6,6 +6,9 @@
 
 Sistem Manajemen Laundry ini dibangun dengan Laravel 12 untuk membantu usaha laundry dalam mengelola transaksi, pelanggan, dan inventaris. Sistem ini menyediakan antarmuka admin yang user-friendly dan fitur lengkap untuk operasional laundry.
 
+📺 Tonton tutorial lengkap pengembangan project ini melalui playlist berikut:  
+👉 [Laundry Management System - YouTube Playlist](https://www.youtube.com/playlist?list=PLusb1og4k-lq0D5IpX39b2zkI65t1t5Ao)
+
 ## Fitur Utama
 
 - Manajemen Pelanggan
