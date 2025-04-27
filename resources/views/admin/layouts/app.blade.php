@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laundry Management System - Admin</title>
+    <title>@yield('title')</title>
     @include('admin.includes.style')
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -15,104 +17,7 @@
             <!-- Main Content -->
             <div class="col-md-10 ms-sm-auto main-content">
                 <!-- Dashboard Content -->
-                <div id="dashboard-content">
-                    <h2>Dashboard Overview</h2>
-                    <div class="row mt-4">
-                        <div class="col-md-3">
-                            <div class="card-counter primary">
-                                <i class="fas fa-shopping-basket"></i>
-                                <span class="count-numbers">125</span>
-                                <span class="count-name">New Orders</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-counter success">
-                                <i class="fas fa-check-circle"></i>
-                                <span class="count-numbers">89</span>
-                                <span class="count-name">Completed</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-counter info">
-                                <i class="fas fa-users"></i>
-                                <span class="count-numbers">342</span>
-                                <span class="count-name">Customers</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card-counter danger">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <span class="count-numbers">Rp 12,450,000</span>
-                                <span class="count-name">Revenue</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row mt-4">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">
-                                    Recent Orders
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Order #</th>
-                                                    <th>Customer</th>
-                                                    <th>Status</th>
-                                                    <th>Amount</th>
-                                                    <th>Due Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>LNDRY-20230501-001</td>
-                                                    <td>John Doe</td>
-                                                    <td><span class="badge bg-warning">Processing</span></td>
-                                                    <td>Rp 75,000</td>
-                                                    <td>2023-05-03</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>LNDRY-20230501-002</td>
-                                                    <td>Jane Smith</td>
-                                                    <td><span class="badge bg-success">Ready</span></td>
-                                                    <td>Rp 120,000</td>
-                                                    <td>2023-05-02</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>LNDRY-20230430-005</td>
-                                                    <td>Robert Johnson</td>
-                                                    <td><span class="badge bg-primary">Pending</span></td>
-                                                    <td>Rp 95,000</td>
-                                                    <td>2023-05-04</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>LNDRY-20230430-004</td>
-                                                    <td>Sarah Williams</td>
-                                                    <td><span class="badge bg-info">Delivered</span></td>
-                                                    <td>Rp 150,000</td>
-                                                    <td>2023-05-01</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    Order Status Distribution
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="orderStatusChart" height="300"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @yield('content')
 
                 <!-- Orders Content (hidden by default) -->
                 <div id="orders-content" style="display: none;">
@@ -120,7 +25,8 @@
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>All Orders</span>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newOrderModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#newOrderModal">
                                 <i class="fas fa-plus me-1"></i> New Order
                             </button>
                         </div>
@@ -176,7 +82,8 @@
                                             <td>2023-05-03</td>
                                             <td>
                                                 <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -189,7 +96,8 @@
                                             <td>2023-05-02</td>
                                             <td>
                                                 <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- More rows would be dynamically populated -->
@@ -219,7 +127,8 @@
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>Customer List</span>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newCustomerModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#newCustomerModal">
                                 <i class="fas fa-plus me-1"></i> New Customer
                             </button>
                         </div>
@@ -270,7 +179,8 @@
                                             <td>2023-05-01</td>
                                             <td>
                                                 <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -281,7 +191,8 @@
                                             <td>2023-05-01</td>
                                             <td>
                                                 <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- More rows would be dynamically populated -->
@@ -311,7 +222,8 @@
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>Available Services</span>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newServiceModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#newServiceModal">
                                 <i class="fas fa-plus me-1"></i> New Service
                             </button>
                         </div>
@@ -358,8 +270,10 @@
                                             <td>Rp 15,000</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -368,8 +282,10 @@
                                             <td>Rp 25,000</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -378,8 +294,10 @@
                                             <td>Rp 10,000</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- More rows would be dynamically populated -->
@@ -396,7 +314,8 @@
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>Item Types</span>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newItemModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#newItemModal">
                                 <i class="fas fa-plus me-1"></i> New Item Type
                             </button>
                         </div>
@@ -431,24 +350,30 @@
                                             <td>Kemeja</td>
                                             <td>Pakaian Atas</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Celana Jeans</td>
                                             <td>Pakaian Bawah</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Selimut</td>
                                             <td>Selimut</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- More rows would be dynamically populated -->
@@ -465,7 +390,8 @@
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>Payment Transactions</span>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newPaymentModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#newPaymentModal">
                                 <i class="fas fa-plus me-1"></i> Record Payment
                             </button>
                         </div>
@@ -520,8 +446,10 @@
                                             <td>2023-05-01</td>
                                             <td>Admin</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -533,8 +461,10 @@
                                             <td>2023-05-01</td>
                                             <td>Staff</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- More rows would be dynamically populated -->
@@ -664,7 +594,8 @@
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>Branch Locations</span>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newLocationModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#newLocationModal">
                                 <i class="fas fa-plus me-1"></i> New Location
                             </button>
                         </div>
@@ -689,8 +620,10 @@
                                             <td>main@laundry.com</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -700,8 +633,10 @@
                                             <td>downtown@laundry.com</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- More rows would be dynamically populated -->
@@ -718,7 +653,8 @@
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>Staff Members</span>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newStaffModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#newStaffModal">
                                 <i class="fas fa-plus me-1"></i> New Staff
                             </button>
                         </div>
@@ -767,8 +703,10 @@
                                             <td>-</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -778,8 +716,10 @@
                                             <td>Main Branch</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -789,8 +729,10 @@
                                             <td>Main Branch</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- More rows would be dynamically populated -->
@@ -807,7 +749,8 @@
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>Customer Notifications</span>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newNotificationModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#newNotificationModal">
                                 <i class="fas fa-plus me-1"></i> New Notification
                             </button>
                         </div>
@@ -867,8 +810,10 @@
                                             <td><span class="badge bg-success">Sent</span></td>
                                             <td>2023-05-01 14:30</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -880,8 +825,10 @@
                                             <td><span class="badge bg-warning">Pending</span></td>
                                             <td>-</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary"><i
+                                                        class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- More rows would be dynamically populated -->
@@ -891,6 +838,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -902,4 +850,5 @@
     @include('admin.includes.scripts')
 
 </body>
+
 </html>
